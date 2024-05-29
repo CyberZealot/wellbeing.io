@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Index Dashboard</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <!-- Styling section to be reduced and streamlined -->
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-decoration: none;
+        }
+        a {
+            text-decoration: none;
+        }
+
+        #left-page {
+            flex: 1;
+            background-color: #808080;
+            padding: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #right-page {
+            flex: 2;
+            background-color: #e0e0e0;
+            padding: 0px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #top-element {
+            order: -1; 
+            background-color: #ccc;
+            display: flex;
+            padding: 0px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center; 
+        }
+
+        .top-element img {
+            max-width: 100%; 
+        }
+
+        #bottom-element {
+            flex-grow: 1;
+            background-color: #ddd;
+            padding-left: 30px;
+            padding-right: 30px;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #select-text{
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .dropdown-container{
+            position: relative;
+            display: inline-block;
+        }
+
+        #dropdown-content{
+            padding: 5px;
+            border: 1px solid whitesmoke;
+            border-radius: 5px;
+            background-color: #C061CB;
+            color: #C061CB;
+            font-size: 14px;
+            color: white;
+            font-weight: bold;
+        }
+
+        #dropdown-council{
+            padding: 5px;
+            border: 1px solid whitesmoke;
+            border-radius: 5px;
+            background-color: #C061CB;
+            color: #C061CB;
+            font-size: 14px;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 800px;
+        }
+
+        .container h3{
+            font-weight: bold; 
+            color: green;
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .text-line {
+            margin-bottom: 8px;
+        }
+
+        .box {
+            width: 33%;
+            height: 165px;
+            background-color: #e0e0e0;
+            border: 1px solid #ccc;
+            margin: 5px auto; 
+            display: flex;
+            flex-direction: column; 
+            justify-content: center;
+            box-sizing: border-box;
+            align-items: center;
+            padding: 15px;
+            text-align: left;
+        }
+
+
+        .box p {
+            margin: 1.5px auto;
+            line-height: 1.25; 
+            text-align: left;
+            width: 95%;
+            background-color: #ccc;
+            border-radius: 2px;
+            padding: 2px;
+
+        }
+
+        h4 {
+            margin-bottom: 5px;
+            margin-top: 2px;
+            text-align: center;
+            display: inline-block;
+        }
+        h3 {
+            margin: 0px;
+            text-align: center
+        }
+
+
+        .box img {
+            width: 15px;
+            height: auto; 
+            margin-right: 20px; 
+            margin-top: 5px;       
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .hidden h6{
+            text-align: left;
+            display: initial;
+            margin-bottom: 0px;
+            margin-top: 0px;
+            font-weight: bolder;
+            font-size: 16px;
+        }
+
+        .hidden-content{
+           column-count: 2;
+           column-gap: 20px;
+           width: 100%; 
+           margin-bottom: 8px; 
+           box-sizing: border-box;
+           padding: 8px;
+           border-radius: 8px;
+        }
+
+        .hidden-title{
+           width: 100%; 
+           display: block;
+           text-align: center;
+           align-items: center;
+        }
+
+        .hidden-title img{
+            margin-top: 25px;
+            margin-right: 25px;
+            align-items: center;
+        }
+
+        .full-width {
+            width: 100%;
+            height: 30vh;
+            display: flex;
+            flex-wrap: column;
+        }
+
+        .full-width p {
+            background-color: #ddd;
+        }
+
+        .council-marker {
+          background-color: #C061CB;
+          border-radius: 25px;
+          color: white;
+          font-weight: bold;
+          font-size: 14px;
+          padding: 10px 15px;
+          position: relative;
+          border: 2px solid whitesmoke;
+        }
+
+        .council-marker::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          top: 100%;
+          transform: translate(-50%, 0);
+          width: 0;
+          height: 0;
+          border-left: 8px solid transparent;
+          border-right: 8px solid transparent;
+          border-top: 8px solid #C061CB;
+        }
+
+        #info-box {
+          background-color: #C061CB;
+          border-radius: 25px;
+          color: white;
+          font-weight: bold;
+          font-size: 14px;
+          bottom: 10px;
+          height: 20px;
+          padding: 10px;
+          position: absolute;
+          left: 1080px;
+        }
+
+        .wellbeing{
+            background-color: #C061CB; 
+            padding-left: 15px; 
+            padding-right: 15px; 
+            padding-bottom: 5px; 
+            padding-top: 5px; 
+            color: white; 
+            border:3px 
+            solid whitesmoke;
+        }
+
+    </style>
+</head>
+
+<body onload="focusDomain('all')">
+    <div id="info-box"></div>
+    <div id="left-page">
+        <img src="uk_map.png" alt="ENG Map" style="max-width: 260%; max-height: 260%; object-fit: contain;">
+    </div>
+
+    <div id="right-page">
+        <div id="top-element">
+            <h1 class="wellbeing">Index Score = ? / 30</h1>
+            <img id="side-image" src="images/Camden.png" alt="Boundary Image is missing" style="width: 250px; height: 250px; object-fit: contain;">
+            <h4 id="council-text">Local Authority Selected:</h4>
+            <form>
+            <div id="dropdown-container">
+                <input id="dropdown-council"  list ="suggestions">
+                    <datalist id="suggestions">
+                    <option value="Barking and Dagenham" data-value="./images/Barking and Dagenham.png"></option>
+                    <option value="Barnet" data-value="./images/Barnet.png"></option>
+                    <option value="Bexley" data-value="./images/Bexley.png"></option>
+                    <option value="Brent" data-value="./images/Brent.png"></option>
+                    <option value="Bromley" data-value="./images/Bromley.png"></option>
+                    <option value="Camden" data-value="./images/Camden.png"></option>
+                    <option value="City of London" data-value="./images/City of London.png"></option>
+                    <option value="Croydon" data-value="./images/Croydon.png"></option>
+                    <option value="Ealing" data-value="./images/Ealing.png"></option>
+                    <option value="Enfield" data-value="./images/Enfield.png"></option>
+                    <option value="Greenwich" data-value="./images/Greenwich.png"></option>
+                    <option value="Hackney" data-value="./images/Hackney.png"></option>
+                    <option value="Hammersmith and Fulham" data-value="./images/Hammersmith and Fulham.png"></option>
+                    <option value="Haringey" data-value="./images/Haringey.png"></option>
+                    <option value="Harrow" data-value="./images/Harrow.png"></option>
+                    <option value="Havering" data-value="./images/Havering.png"></option>
+                    <option value="Hillingdon" data-value="./images/Hillingdon.png"></option>
+                    <option value="Hounslow" data-value="./images/Hounslow.png"></option>
+                    <option value="Islington" data-value="./images/Islington.png"></option>
+                    <option value="Kensington and Chelsea" data-value="./images/Kensington and Chelsea.png"></option>
+                    <option value="Kingston upon Thames" data-value="./images/Kingston upon Thames.png"></option>
+                    <option value="Lambeth" data-value="./images/Lambeth.png"></option>
+                    <option value="Lewisham" data-value="./images/Lewisham.png"></option>
+                    <option value="Merton" data-value="./images/Merton.png"></option>
+                    <option value="Newham" data-value="./images/Newham.png"></option>
+                    <option value="Redbridge" data-value="./images/Redbridge.png"></option>
+                    <option value="Richmond upon Thames" data-value="./images/Richmond upon Thames.png"></option>
+                    <option value="Southwark" data-value="./images/Southwark.png"></option>
+                    <option value="Sutton" data-value="./images/Sutton.png"></option>
+                    <option value="Tower Hamlets" data-value="./images/Tower Hamlets.png"></option>
+                    <option value="Waltham Forest" data-value="./images/Waltham Forest.png"></option>
+                    <option value="Wandsworth" data-value="./images/Wandsworth.png"></option>
+                </datalist>
+                </input>
+            </form>
+            </div>
+        </div>
+            <div id="bottom-element">
+                <h2>Index</h2>
+                <p>Details regarding the index will go here, along with options to select between different domains within it.</p>
+                <div id="dropdown-container">
+                    <label for="dropdown">Filter by Domain:</label>
+                    <select id="dropdown-content" onchange="focusDomain(value)">
+                        <option value="all">All</option>
+                        <option value="one">Community Richness, Cultures & Identities</option>
+                        <option value="two">Secure Livelihoods</option>
+                        <option value="three">Environmental Revitalisation</option>
+                        <option value="four">Formal & Informal Learning</option>
+                        <option value="five">Positive Connections</option>
+                        <option value="six">Our Spaces & Services</option>
+                    </select>
+                </div>
+
+                <div class="container" id ="box-container">
+                    <div class="box" id="all">
+                        <h3 class="community-richness"><span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</h3>
+                        <h4>Community Richness</h4>
+                        <p class="voter">Voter Turnout - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                        <p class="library">Library Usage - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                        <p class="heritage">Heritage - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                        <a href="#" onclick="focusDomain('one')"><sub>View More</sub></a>
+                    </div>
+                    <div class="hidden" id="one">
+                        <div class="hidden-title">
+                            <h6 title="Infomation regarding how the weights are determined, and what is done to assign the values to the metrics, are listed here to help give context">ⓘ</h6>
+                            <img id="side-image" src="test.png" alt="Side Image" style="width: 50px; height: 50px;">
+                            <h3 class="community-richness"><span style="font-weight: bold; color: grey;">⊝⊝⊝⊝⊝</h3>
+                            <h4>Community Richness - Expanded</h4>
+                        </div>
+                        <div class ="hidden-content">
+                            <p class="voter">Voter Turnout - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                            <p class="hatecrime" >Crime - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                            <p class="heritage">Heritage - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                            <p class="library">Library Usage - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                        </div>
+                    </div>
+                    <div class="box" id="all">
+                        <h3 class="secure-livelihoods"><span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</h3>
+                        <h4>Secure Livelihoods</h4>
+                        <p class="home-ownership">Home Ownership - <span style="font-weight: bold; color: grey;">⊝⊝⊝⊝⊝</p>
+                        <p class="annual-income">Annual Income - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                        <p class="unemployment">Unemployment - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                        <a href="#" onclick="focusDomain('two')"><sub>View More</sub></a>
+                    </div>
+                    <div class="hidden" id="two">
+                        <div class="hidden-title">
+                            <h6 title="Infomation regarding how the weights are determined, and what is done to assign the values to the metrics, are listed here to help give context">ⓘ</h6>
+                            <img id="side-image" src="test4.png" alt="Side Image" style="width: 50px; height: 50px;">
+                            <h3 class="secure-livelihoods"><span style="font-weight: bold; color: grey;">⊝⊝⊝⊝⊝</h3>
+                            <h4>Secure Livelihoods - Expanded</h4>
+                        </div>
+                        <div class ="hidden-content">
+                            <p class="unemployment-benefits">Unemployment Benefits - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                            <p class="social-housing">Housing benefits / social housing - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                            <p class="credit">Credit claimants - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                            <p class="school-meals">Free school meals - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                            <p class="unemployment">Unemployment - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                            <p class="child-poverty">Child poverty - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                            <p class="annual-income">Annual income - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                            <p class="income-housing">Income after housing costs - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                            <p class="homelessness">Homelessness - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                            <p class="home-ownership">Home ownership - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                            <p class="food-bank">Food bank usage - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                        </div>
+                    </div>
+                    <div class="box" id="all">
+                        <h3 class="environmental-revitalisation"><span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</h3>
+                        <h4>Environmental Revitalisation</h4>
+                        <p class="recycling">Recycling Rates - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                        <p class="noise">Noise Levels - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                        <p class="distancetoparks">Distance to Parks - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                        <a href="#" onclick="focusDomain('three')"><sub>View More</sub></a>
+                    </div>
+                    <div class="hidden" id="three">
+                        <div class="hidden-title">
+                            <h6 title="Infomation regarding how the weights are determined, and what is done to assign the values to the metrics, are listed here to help give context">ⓘ</h6>
+                            <img id="side-image" src="test6.png" alt="Side Image" style="width: 50px; height: 50px;">
+                            <h3 class="environmental-revitalisation"><span style="font-weight: bold; color: grey;">⊝⊝⊝⊝⊝</h3>
+                            <h4>Environmental Revitalisation - Expanded</h4>
+                        </div>
+                        <div class ="hidden-content">
+                            <p class="fires">Fires - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                            <p class="traffc">Traffic Accidents - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                            <p class="fly-tipping">Fly Tipping Reports - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                            <p class="recycling">Recycling Rates - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                            <p class="noise">Noise Levels - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>   
+                            <p class="distancetoparks">Distance to parks - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>                          
+                        </div>
+                    </div>
+                    <div class="box" id="all">
+                        <h3 class="learning"><span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</h3>
+                        <h4>Formal & Informal Learning</h4>
+                        <p class="ksschooling">KS Attainment - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                        <p class="absenteeism">Absenteeism - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                        <p class="youthtraining">Youth Training - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                        <a href="#" onclick="focusDomain('four')"><sub>View More</sub></a>
+                    </div>
+                    <div class="hidden" id="four">
+                        <div class="hidden-title">
+                            <h6 title="Infomation regarding how the weights are determined, and what is done to assign the values to the metrics, are listed here to help give context">ⓘ</h6>                            
+                            <img id="side-image" src="test3.png" alt="Side Image" style="width: 50px; height: 50px;">
+                            <h3 class="learning"><span style="font-weight: bold; color: grey;">⊝⊝⊝⊝⊝</h3>
+                            <h4>Formal & Informal Learning - Expanded</h4>
+                        </div>
+                        <div class ="hidden-content">
+                            <p class="ksschooling">KeyStage Attainment - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                            <p class="absenteeism">Sustained School Absenteeism - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                            <p class="youthtraining">Youth Enrollment in Trainings - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>           
+                        </div>
+                    </div>
+                    <div class="box" id="all">
+                        <h3 class="positive-connections"><span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</h3>
+                        <h4>Positive Connections</h4>
+                        <p class="expectancy">Life Expectancy - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                        <p class="obesity">Obesity Rates - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                        <p class="childobesity">Childhood Obesity - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                        <a href="#" onclick="focusDomain('five')"><sub>View More</sub></a>
+                    </div>
+                    <div class="hidden" id="five">
+                        <div class="hidden-title">
+                            <h6 title="Infomation regarding how the weights are determined, and what is done to assign the values to the metrics, are listed here to help give context">ⓘ</h6>                            
+                            <img id="side-image" src="test2.png" alt="Side Image" style="width: 50px; height: 50px;">
+                            <h3 class="positive-connections"><span style="font-weight: bold; color: grey;">⊝⊝⊝⊝⊝</h3>
+                            <h4>Positive Connections - Expanded</h4>
+                        </div>
+                        <div class ="hidden-content">
+                            <p class="obesity">Obesity Rates - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                            <p class="childobesity">Childhood Obesity - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                            <p class="pregnancy">Teenage Pregnancy - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>   
+                            <p class="expectancy">Healthy Life Expectancy - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                            <p class="medical">Usage of Medical Facilities - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>        
+                        </div>
+                    </div>
+                    <div class="box" id="all">
+                        <h3 class="services"><span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</h3>
+                        <h4>Our Spaces & Services</h4>
+                        <p class="publictransport">Public Transport - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                        <p class="faith">Religious Partici. - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                        <p class="volunteering">Volunteering - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                        <a href="#" onclick="focusDomain('six')"><sub>View More</sub></a>
+                    </div>
+                    <div class="hidden" id="six">
+                        <div class="hidden-title">
+                            <h6 title="Infomation regarding how the weights are determined, and what is done to assign the values to the metrics, are listed here to help give context">ⓘ</h6>
+                            <img id="side-image" src="test5.png" alt="Side Image" style="width: 50px; height: 50px;">
+                            <h3 class="services"><span style="font-weight: bold; color: grey;">⊝⊝⊝⊝⊝</h3>
+                            <h4>Our Spaces & Services - Expanded</h4>
+                        </div>
+                        <div class ="hidden-content">
+                            <p class="community-centres">Registered Community Centre Users - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                            <p class="sports-centres">Users of Leisure/Sports Centres - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                            <p class="publictransport">Use of Public Transport - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>   
+                            <p class="faith">Religious Participation - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>
+                            <p class="volunteering">Volunteering Activities - <span style="font-weight: bold; color: grey">⊝⊝⊝⊝⊝</p>        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    // Function to determine the fill colour for a polygon
+    function determineFillColor(feature) {
+        const fillColor = 'red';
+
+    }
+
+    // Function that assigns the focused Domain, revealing and hiding elements based on the input
+    function focusDomain(elementIdToShow) {
+        var parentDiv = document.getElementById("box-container");
+        var childElements = parentDiv.children;
+        document.getElementById('dropdown-content').value = elementIdToShow;
+
+        for (var i = 0; i < childElements.length; i++) {
+            var childElement = childElements[i];
+
+            if (childElement.id === elementIdToShow) {
+                // Display the selected element
+                childElement.style.display = "flex";
+                if(childElement.id == "all"){
+
+                }else{
+                childElement.classList.add("full-width");
+                childElement.classList.add("box");
+                }
+            } else {
+                // Hide other elements
+                childElement.style.display = "none";
+                childElement.classList.remove("full-width");
+            }
+        }
+    }
+
+    var input = document.getElementById('dropdown-council');
+    var datalist = document.getElementById('suggestions');
+    var image = document.getElementById('side-image');
+
+    // Function to change the displayed authority image
+    function changeAuthority(authority){
+        console.log(authority);
+        image.src = authority;
+    }
+
+    // Add event listener for input change
+    input.addEventListener('input', function() {
+        // Get the current input value
+        var inputValue = input.value;
+        // Find the option in the datalist that matches the input value
+        var matchedOption = Array.from(datalist.options).find(function(option) {
+            return option.value === inputValue;
+        });
+
+        // If a matching option is found, update the input value
+        if (matchedOption) {
+            input.value = matchedOption.value;
+            var selectedImageSrc = matchedOption.dataset.value;
+            changeAuthority(selectedImageSrc);
+        }
+    });
+
+
+</script>
+
+<script>
+// This function governs the Google Maps API functionality
+async function initMap() {
+    var ukCenter = { lat: 55.3781, lng: -3.4360 };
+    var mapId = '7079e1648e4637dd';
+
+    const { Map } = await google.maps.importLibrary("maps");
+    const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
+
+    const map = new google.maps.Map(document.getElementById('left-page'), {
+        zoom: 6,
+        center: ukCenter,
+        zoomControl: true, 
+        disableDefaultUI: true,
+        mapTypeControl: false,
+        mapTypeId: 'roadmap',
+        mapId: mapId
+    });  
+
+    map.data.loadGeoJson('https://raw.githubusercontent.com/CyberZealot/wellbeing.io/main/geodata.json');
+
+    var selectedFeature = null;
+      map.data.setStyle((feature) => {
+        let color = "purple";
+        let fillC = "white";
+        let thickness = 1;
+
+        if (feature.getProperty("isColorful")) {
+          fillC = "purple";
+          color = "black"
+          thickness = 3;
+        }
+        return /** @type {!google.maps.Data.StyleOptions} */ {
+          fillColor: fillC,
+          strokeColor: color,
+          strokeWeight: thickness,
+        };
+    });   
+
+    // When the authority clicks, set 'isColorful' which changes the polygon's colour
+    map.data.addListener("click", (event) => {
+    if (selectedFeature) {
+        selectedFeature.setProperty("isColorful", false);
+    }
+    selectedFeature = event.feature;
+    map.data.revertStyle();
+    event.feature.setProperty("isColorful", true);
+
+    var val = event.feature.getProperty("LAD13CD")
+    updateDisplayText(val.toUpperCase());
+
+    document.getElementById("dropdown-council").value = event.feature.getProperty("LAD13NM");  
+    changeAuthority("./images/"+ event.feature.getProperty("LAD13NM") + ".png");   
+    determineFillColor(selectedFeature)
+
+    var bounds = new google.maps.LatLngBounds();
+        event.feature.getGeometry().forEachLatLng(function(latlng) {
+            bounds.extend(latlng);
+        });
+        map.fitBounds(bounds);
+    });
+
+    // This following section pertains to hover behaviour, 
+    map.data.addListener("mouseover", (event) => {
+        map.data.revertStyle();
+        changeAuthority("./images/"+ event.feature.getProperty("LAD13NM") + ".png");
+        map.data.overrideStyle(event.feature, { strokeWeight: 3, fillColor:"purple", strokeColor:"black" });
+        document.getElementById("info-box").textContent = event.feature.getProperty("LAD13NM");
+    });
+        map.data.addListener("mouseout", (event) => {
+        map.data.revertStyle();
+        document.getElementById("info-box").textContent = ""
+    });
+
+    /// This section is the search feature, which draws from the dropdown element in the HTML
+    document.getElementById('dropdown-council').addEventListener('input', function() {
+    var searchTerm = document.getElementById('dropdown-council').value.trim();
+
+    // Iterate through features to find the one with matching name property
+    map.data.forEach(function(feature) {
+        var featureName = feature.getProperty('LAD13CD'); 
+        if (featureName.toLowerCase() === searchTerm.toLowerCase()) {
+
+            updateDisplayText(featureName.toUpperCase());
+
+            if (selectedFeature) {
+                selectedFeature.setProperty("isColorful", false);
+            }
+            map.data.revertStyle();
+
+            selectedFeature = feature;
+
+            // Styling of the authority is overridden 
+            map.data.overrideStyle(feature, {
+                strokeWeight: 3, // Example: Increase stroke weight
+                strokeColor: 'black', // Example: Change stroke color
+                fillColor: 'purple'
+            });
+
+            // The view is focused on the selected authority
+            var bounds = new google.maps.LatLngBounds();
+            feature.getGeometry().forEachLatLng(function(latlng) {
+                bounds.extend(latlng);
+            });
+            map.fitBounds(bounds);
+        }
+    });
+    });
+}
+</script>
+
+<script>
+// URL to the dataset for the index
+const url = 'https://raw.githubusercontent.com/CyberZealot/wellbeing.io/main/localdata_alt.json';
+
+// Function to fetch the JSON data from GitHub
+async function fetchData(url) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Failed to fetch data:', error);
+    return null;
+  }
+}
+
+// Function to extract and print all information for a authority
+function extractAuthorityInfo(aName, aArray) {
+    const prefix = aName + "_";
+    let authorityInfoFound = false;
+
+    // Classes for each text variable
+    const text = [".wellbeing",".community-richness",".voter",".library",".heritage",".hatecrime",".secure-livelihoods",".unemployment-benefits",".social-housing",".credit",".school-meals",".unemployment",".child-poverty",".annual-income",".income-housing",".homelessness",".home-ownership",".food-bank",".environmental-revitalisation",".fires",".traffc",".fly-tipping",".recycling",".noise",".distancetoparks",".learning",".ksschooling",".absenteeism",".youthtraining",".positive-connections",".obesity",".childobesity",".pregnancy",".expectancy",".medical",".services",".publictransport",".faith",".volunteering",".community-centres",".sports-centres"];
+
+    // Values used to search through the JSON dataset
+    const values = [prefix+"wellbeing",prefix+"community-richness",prefix+"voter",prefix+"library",prefix+"heritage",prefix+"hatecrime",prefix+"secure-livelihoods",prefix+"unemployment-benefits",prefix+"social-housing",prefix+"credit",prefix+"school-meals",prefix+"unemployment",prefix+"child-poverty",prefix+"annual-income",prefix+"income-housing",prefix+"homelessness",prefix+"home-ownership",prefix+"food-bank",prefix+"environmental-revitalisation",prefix+"fires",prefix+"traffc",prefix+"fly-tipping",prefix+"recycling",prefix+"noise",prefix+"distancetoparks",prefix+"learning",prefix+"ksschooling",prefix+"absenteeism",prefix+"youthtraining",prefix+"positive-connections",prefix+"obesity",prefix+"childobesity",prefix+"pregnancy",prefix+"expectancy",prefix+"medical",prefix+"services",prefix+"publictransport",prefix+"faith",prefix+"volunteering",prefix+"community-centres",prefix+"sports-centres"];
+
+    // Display text that is paired with the value extracted from the JSON
+    const display = ["Wellbeing - "," ","Voter Turnout - ","Library Usage - ","Heritage - ","Crime (Hatecrimes) - ","","Unemployment Benefits - ","Social Housing - ","Credit Claimants - ","Free School Meals - ","Unemployment - ","Child Poverty - ","Annual Income - ","Income Housing - ","Homelessness - ","Home Ownership - ","Food Bank Usage - ","","Fires - ","Traffic Accidents - ","Fly-Tipping Reports - ","Recycling Rate - ","Noise Complaints - ","Distance To Parks - ","","KS Attainment - ","Absenteeism - ","Youth Training - ","","Obesity - ","Child Obesity - ","Teenage Pregnancy - ","Life Expectancy - ","NHS GP - ","","Public Transport - ","Faith Participation - ","Volunteering - ","Community Centre Users - ","Sports/Leisure Centre Users"];
+
+    // This section iterates through the relevant keys within the JSON and extracts the values of each
+    aArray.forEach(authority => {
+    const aKeys = Object.keys(authority);
+    const relevantKeys = aKeys.filter(key => key.startsWith(prefix));
+
+    if (relevantKeys.length > 0) {
+      authorityInfoFound = true;
+
+      for (let i = 0; i < relevantKeys.length; i++) {
+        const elements = document.querySelectorAll(text[i]);
+        elements.forEach(element => {
+            const val = `${authority[relevantKeys.find(key => key.startsWith(values[i]))]}`;
+            element.innerText = `${display[i]} ` + val;
+        });
+      }
+      relevantKeys.forEach(key => {
+        console.log(`${key.replace(prefix, '')}: ${authority[key]}`);
+      });
+    }
+    });
+
+    // IF no information exists for the selected authority,
+    if (!authorityInfoFound) {
+    }
+}
+
+// Main function to fetch data and extract authority information to display it
+async function updateDisplayText(areacode) {
+    const aData = await fetchData(url);
+
+    // IF authority data is found, then search the dataset for authority by area code
+    if (aData) {
+    const aName = areacode;
+    extractAuthorityInfo(aName, aData);
+    }
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ_ISENaww2PHEZdrmCVhOwkL-uN6m_l4&callback=initMap" async defer></script>
+</html>
