@@ -691,21 +691,8 @@ function extractAuthorityInfo(aName, aArray, aYear) {
         elements.forEach(element => {
             const val = `${authority[relevantKeys.find(key => key.startsWith(values[i]))]}`;
             element.innerText = `${display[i]} ` + val;
-        });
-      }
-      relevantKeys.forEach(key => {
-        console.log(`${key.replace(prefix, '')}: ${authority[key]}`);
-      });
-
-    }
-    // IF no information exists for the selected authority,
-    if (!authorityInfoFound) {
-        for (let j = 0; j < display.length; j++) {
-            const nelements = document.querySelectorAll(text[j]);
-                nelements.forEach(element => {
-                nelements.innerText = `${display[j]} ` + "NULL";
-                });
-            }
+            });
+          }
         }
     }
 }
