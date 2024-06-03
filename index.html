@@ -698,7 +698,8 @@ function extractAuthorityInfo(aName, aArray, aYear) {
       });
 
     }
-    if (authorityInfoFound == false){
+    // IF no information exists for the selected authority,
+    if (!authorityInfoFound) {
         for (let j = 0; j < display.length; j++) {
             const nelements = document.querySelectorAll(text[j]);
                 nelements.forEach(element => {
@@ -706,12 +707,7 @@ function extractAuthorityInfo(aName, aArray, aYear) {
             });
         }
     }
-
-    });
-
-    // IF no information exists for the selected authority,
-    if (!authorityInfoFound) {
-    }
+}
 }
 
 // Main function to fetch data and extract authority information to display it
