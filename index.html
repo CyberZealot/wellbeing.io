@@ -704,10 +704,10 @@ function extractAuthorityInfo(aName, aArray, aYear) {
             const nelements = document.querySelectorAll(text[j]);
                 nelements.forEach(element => {
                 nelements.innerText = `${display[j]} ` + "NULL";
-            });
+                });
+            }
         }
     }
-}
 }
 
 // Main function to fetch data and extract authority information to display it
