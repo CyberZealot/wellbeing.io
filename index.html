@@ -251,10 +251,31 @@
             padding-bottom: 5px; 
             padding-top: 5px; 
             color: white; 
-            border:3px 
-            solid whitesmoke;
         }
 
+        .slider-container {
+            text-align: center;
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            width: 300px;
+            height: 10px;
+            background: #ddd;
+            outline: none;
+            opacity: 0.8;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+        .slider:hover {
+            opacity: 1;
+        }
+        .slider::-moz-range-thumb {
+            width: 10px;
+            height: 20px;
+            background: black;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -266,7 +287,7 @@
 
     <div id="right-page">
         <div id="top-element">
-            <h1 class="wellbeing">Index Score = ? / 30</h1>
+            <h1 class="wellbeing">Index Score = ?</h1>
             <img id="side-image" src="images/Camden.png" alt="Boundary Image is missing" style="width: 250px; height: 250px; object-fit: contain;">
             <h4 id="council-text">Local Authority Selected:</h4>
             <form>
@@ -309,6 +330,10 @@
                 </input>
             </form>
             </div>
+            <div class="slider-container">
+                <input type="range" min="2015" max="2024" value="2024" class="slider" id="mySlider">
+                <p><span id="sliderValue" style="font-weight: bold;">2024</span></p>
+             </div>
         </div>
             <div id="bottom-element">
                 <h2>Index</h2>
@@ -669,9 +694,15 @@ async function fetchData(url) {
 }
 
 // Function to extract and print all information for a authority
-function extractAuthorityInfo(aName, aArray) {
+
+/// PREFIX WILL NEED TO BE [YEAR+NAME+DATA]
+
+function extractAuthorityInfo(aName, aArray, aYear) {
     const prefix = aName + "_";
+    const year = aYear + aName + "_";;
     let authorityInfoFound = false;
+
+    console.log(aYear);
 
     // Classes for each text variable
     const text = [".wellbeing",".community-richness",".voter",".library",".heritage",".hatecrime",".secure-livelihoods",".unemployment-benefits",".social-housing",".credit",".school-meals",".unemployment",".child-poverty",".annual-income",".income-housing",".homelessness",".home-ownership",".food-bank",".environmental-revitalisation",".fires",".traffc",".fly-tipping",".recycling",".noise",".distancetoparks",".learning",".ksschooling",".absenteeism",".youthtraining",".positive-connections",".obesity",".childobesity",".pregnancy",".expectancy",".medical",".services",".publictransport",".faith",".volunteering",".community-centres",".sports-centres"];
@@ -715,10 +746,20 @@ async function updateDisplayText(areacode) {
     // IF authority data is found, then search the dataset for authority by area code
     if (aData) {
     const aName = areacode;
-    extractAuthorityInfo(aName, aData);
+    const aYear = document.getElementById('sliderValue');
+    extractAuthorityInfo(aName, aData, aYear);
     }
 }
+
 </script>
+    <script>
+        const slider = document.getElementById('mySlider');
+        const sliderValue = document.getElementById('sliderValue');
+
+        slider.oninput = function() {
+            sliderValue.textContent = this.value;
+        }
+    </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ_ISENaww2PHEZdrmCVhOwkL-uN6m_l4&callback=initMap" async defer></script>
 </html>
