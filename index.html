@@ -699,10 +699,10 @@ function extractAuthorityInfo(aName, aArray, aYear) {
 
     }
     if (authorityInfoFound == false){
-        for (let i = 0; i < 34; i++) {
-            const elements = document.querySelectorAll(text[i]);
-                elements.forEach(element => {
-                element.innerText = `${display[i]} ` + "NULL";
+        for (let j = 0; j < display.length; j++) {
+            const nelements = document.querySelectorAll(text[j]);
+                nelements.forEach(element => {
+                nelements.innerText = `${display[j]} ` + "NULL";
             });
         }
     }
