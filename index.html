@@ -696,7 +696,16 @@ function extractAuthorityInfo(aName, aArray, aYear) {
       relevantKeys.forEach(key => {
         console.log(`${key.replace(prefix, '')}: ${authority[key]}`);
       });
+
+    }else if (authorityInfoFound == false){
+        for (let i = 0; i < 34; i++) {
+            const elements = document.querySelectorAll(text[i]);
+                elements.forEach(element => {
+                element.innerText = `${display[i]} ` + "NULL";
+            });
+        }
     }
+
     });
 
     // IF no information exists for the selected authority,
