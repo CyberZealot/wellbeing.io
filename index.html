@@ -636,13 +636,47 @@ async function initMap() {
         map.data.revertStyle();
         document.getElementById("info-box").textContent = ""
     });
+
+    /// This section is the search feature, which draws from the dropdown element in the HTML
+    document.getElementById('dropdown-council').addEventListener('input', function() {
+    var searchTerm = document.getElementById('dropdown-council').value.trim();
+
+    // Iterate through features to find the one with matching name property
+    map.data.forEach(function(feature) {
+        var featureName = feature.getProperty('LAD13CD'); 
+        if (featureName.toLowerCase() === searchTerm.toLowerCase()) {
+
+            updateDisplayText(featureName.toUpperCase());
+
+            if (selectedFeature) {
+                selectedFeature.setProperty("isColorful", false);
+            }
+            map.data.revertStyle();
+
+            selectedFeature = feature;
+
+            // Styling of the authority is overridden 
+            map.data.overrideStyle(feature, {
+                strokeWeight: 3, // Example: Increase stroke weight
+                strokeColor: 'black', // Example: Change stroke color
+                fillColor: 'purple'
+            });
+
+            // The view is focused on the selected authority
+            var bounds = new google.maps.LatLngBounds();
+            feature.getGeometry().forEachLatLng(function(latlng) {
+                bounds.extend(latlng);
+            });
+            map.fitBounds(bounds);
+        }
+    });
+    });
 }
 </script>
 
 <script>
 // URL to the dataset for the index
 const url = 'https://raw.githubusercontent.com/CyberZealot/wellbeing.io/main/localdata_alt.json';
-// 'https://raw.githubusercontent.com/CyberZealot/wellbeing.io/main/' + document.getElementById("mySlider").value  + '_data.json';
 
 // Function to fetch the JSON data from GitHub
 async function fetchData(url) {
@@ -663,9 +697,12 @@ async function fetchData(url) {
 
 /// PREFIX WILL NEED TO BE [YEAR+NAME+DATA]
 
-function extractAuthorityInfo(aName, aArray) {
+function extractAuthorityInfo(aName, aArray, aYear) {
     const prefix = aName + "_";
+    const year = aYear + aName + "_";;
     let authorityInfoFound = false;
+
+    console.log(year);
 
     // Classes for each text variable
     const text = [".wellbeing",".community-richness",".voter",".library",".heritage",".hatecrime",".secure-livelihoods",".unemployment-benefits",".social-housing",".credit",".school-meals",".unemployment",".child-poverty",".annual-income",".income-housing",".homelessness",".home-ownership",".food-bank",".environmental-revitalisation",".fires",".traffc",".fly-tipping",".recycling",".noise",".distancetoparks",".learning",".ksschooling",".absenteeism",".youthtraining",".positive-connections",".obesity",".childobesity",".pregnancy",".expectancy",".medical",".services",".publictransport",".faith",".volunteering",".community-centres",".sports-centres"];
@@ -694,8 +731,12 @@ function extractAuthorityInfo(aName, aArray) {
       relevantKeys.forEach(key => {
         console.log(`${key.replace(prefix, '')}: ${authority[key]}`);
       });
-  }
-}
+    }
+    });
+
+    // IF no information exists for the selected authority,
+    if (!authorityInfoFound) {
+    }
 }
 
 // Main function to fetch data and extract authority information to display it
@@ -705,17 +746,20 @@ async function updateDisplayText(areacode) {
     // IF authority data is found, then search the dataset for authority by area code
     if (aData) {
     const aName = areacode;
-    extractAuthorityInfo(aName, aData);
+    const aYear = document.getElementById("mySlider").value
+    extractAuthorityInfo(aName, aData, aYear);
     }
 }
-</script>
-<script>
-    const slider = document.getElementById('mySlider');
-    const sliderValue = document.getElementById('sliderValue');
 
-    slider.oninput = function() {
-        sliderValue.textContent = this.value;
-    }
 </script>
+    <script>
+        const slider = document.getElementById('mySlider');
+        const sliderValue = document.getElementById('sliderValue');
+
+        slider.oninput = function() {
+            sliderValue.textContent = this.value;
+        }
+    </script>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ_ISENaww2PHEZdrmCVhOwkL-uN6m_l4&callback=initMap" async defer></script>
 </html>
