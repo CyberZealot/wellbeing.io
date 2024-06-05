@@ -611,7 +611,7 @@ async function initMap() {
     map.data.revertStyle();
     event.feature.setProperty("isColorful", true);
 
-    var val = event.feature.getProperty("LAD13CD")
+    var val = event.feature.getProperty("LAD13CD");
     updateDisplayText(val.toUpperCase());
 
     document.getElementById("dropdown-council").value = event.feature.getProperty("LAD13NM");  
@@ -642,7 +642,6 @@ async function initMap() {
 <script>
 // URL to the dataset for the index
 const url = 'https://raw.githubusercontent.com/CyberZealot/wellbeing.io/main/localdata_alt.json';
-// 'https://raw.githubusercontent.com/CyberZealot/wellbeing.io/main/' + document.getElementById("mySlider").value  + '_data.json';
 
 // Function to fetch the JSON data from GitHub
 async function fetchData(url) {
