@@ -642,6 +642,7 @@ async function initMap() {
 <script>
 // URL to the dataset for the index
 const url = 'https://raw.githubusercontent.com/CyberZealot/wellbeing.io/main/localdata_alt.json';
+// 'https://raw.githubusercontent.com/CyberZealot/wellbeing.io/main/' + document.getElementById("mySlider").value  + '_data.json';
 
 // Function to fetch the JSON data from GitHub
 async function fetchData(url) {
@@ -663,11 +664,8 @@ async function fetchData(url) {
 /// PREFIX WILL NEED TO BE [YEAR+NAME+DATA]
 
 function extractAuthorityInfo(aName, aArray, aYear) {
-    const prefix = aName + "_";
-    const year = aYear + aName + "_";
+    const prefix = aYear + "_" + aName + "_";
     let authorityInfoFound = false;
-
-    console.log(year);
 
     // Classes for each text variable
     const text = [".wellbeing",".community-richness",".voter",".library",".heritage",".hatecrime",".secure-livelihoods",".unemployment-benefits",".social-housing",".credit",".school-meals",".unemployment",".child-poverty",".annual-income",".income-housing",".homelessness",".home-ownership",".food-bank",".environmental-revitalisation",".fires",".traffc",".fly-tipping",".recycling",".noise",".distancetoparks",".learning",".ksschooling",".absenteeism",".youthtraining",".positive-connections",".obesity",".childobesity",".pregnancy",".expectancy",".medical",".services",".publictransport",".faith",".volunteering",".community-centres",".sports-centres"];
@@ -691,9 +689,22 @@ function extractAuthorityInfo(aName, aArray, aYear) {
         elements.forEach(element => {
             const val = `${authority[relevantKeys.find(key => key.startsWith(values[i]))]}`;
             element.innerText = `${display[i]} ` + val;
-            });
-          }
-        }
+        });
+      }
+      relevantKeys.forEach(key => {
+        console.log(`${key.replace(prefix, '')}: ${authority[key]}`);
+      });
+
+    }
+    // IF no information exists for the selected authority,
+    if (!authorityInfoFound) {
+        for (let j = 0; j < display.length; j++) {
+            const nelements = document.querySelectorAll(text[j]);
+                nelements.forEach(element => {
+                nelements.innerText = `${display[j]} ` + "NULL";
+                });
+            }
+        }   
     }
 }
 
@@ -705,7 +716,7 @@ async function updateDisplayText(areacode) {
     if (aData) {
     const aName = areacode;
     const aYear = document.getElementById("mySlider").value
-    extractAuthorityInfo(aName, aData, aYear);
+    extractAuthorityInfo(aName, aData, 2024);
     }
 }
 </script>
