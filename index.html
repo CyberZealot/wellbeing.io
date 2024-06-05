@@ -611,7 +611,7 @@ async function initMap() {
     map.data.revertStyle();
     event.feature.setProperty("isColorful", true);
 
-    var val = event.feature.getProperty("LAD13CD")
+    var val = event.feature.getProperty("LAD13CD");
     updateDisplayText(val.toUpperCase());
 
     document.getElementById("dropdown-council").value = event.feature.getProperty("LAD13NM");  
