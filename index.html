@@ -611,7 +611,7 @@ async function initMap() {
     map.data.revertStyle();
     event.feature.setProperty("isColorful", true);
 
-    var val = event.feature.getProperty("LAD13CD");
+    var val = event.feature.getProperty("LAD13CD")
     updateDisplayText(val.toUpperCase());
 
     document.getElementById("dropdown-council").value = event.feature.getProperty("LAD13NM");  
@@ -694,17 +694,7 @@ function extractAuthorityInfo(aName, aArray, aYear) {
       relevantKeys.forEach(key => {
         console.log(`${key.replace(prefix, '')}: ${authority[key]}`);
       });
-
-    }
-    // IF no information exists for the selected authority,
-    if (!authorityInfoFound) {
-        for (let j = 0; j < display.length; j++) {
-            const nelements = document.querySelectorAll(text[j]);
-                nelements.forEach(element => {
-                nelements.innerText = `${display[j]} ` + "NULL";
-                });
-            }
-        }   
+    } 
     }
 }
 
