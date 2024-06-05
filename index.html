@@ -636,12 +636,25 @@ async function initMap() {
         map.data.revertStyle();
         document.getElementById("info-box").textContent = ""
     });
+
+        // Main function to fetch data and extract authority information to display it
+    async function updateDisplayText(areacode) {
+    const aData = await fetchData(url);
+
+    // IF authority data is found, then search the dataset for authority by area code
+    if (aData) {
+    const aName = areacode;
+    extractAuthorityInfo(aName, aData);
+    }
+}
+
 }
 </script>
 
 <script>
 // URL to the dataset for the index
 const url = 'https://raw.githubusercontent.com/CyberZealot/wellbeing.io/main/localdata_alt.json';
+// 'https://raw.githubusercontent.com/CyberZealot/wellbeing.io/main/' + document.getElementById("mySlider").value  + '_data.json';
 
 // Function to fetch the JSON data from GitHub
 async function fetchData(url) {
@@ -695,17 +708,6 @@ function extractAuthorityInfo(aName, aArray) {
       });
   }
 }
-}
-
-// Main function to fetch data and extract authority information to display it
-async function updateDisplayText(areacode) {
-    const aData = await fetchData(url);
-
-    // IF authority data is found, then search the dataset for authority by area code
-    if (aData) {
-    const aName = areacode;
-    extractAuthorityInfo(aName, aData);
-    }
 }
 </script>
 <script>
