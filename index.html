@@ -664,8 +664,8 @@ async function fetchData(url) {
 /// PREFIX WILL NEED TO BE [YEAR+NAME+DATA]
 
 
-    function extractAuthorityInfo(aName, aArray) {
-        const prefix = aName + "_";
+function extractAuthorityInfo(aName, aArray) {
+                const prefix = aName + "_";
         let authorityInfoFound = false;
 
         // Classes for each text variable
@@ -676,8 +676,7 @@ async function fetchData(url) {
 
         // Display text that is paired with the value extracted from the JSON
         const display = ["Wellbeing - "," ","Voter Turnout - ","Library Usage - ","Heritage - ","Crime (Hatecrimes) - ","","Unemployment Benefits - ","Social Housing - ","Credit Claimants - ","Free School Meals - ","Unemployment - ","Child Poverty - ","Annual Income - ","Income Housing - ","Homelessness - ","Home Ownership - ","Food Bank Usage - ","","Fires - ","Traffic Accidents - ","Fly-Tipping Reports - ","Recycling Rate - ","Noise Complaints - ","Distance To Parks - ","","KS Attainment - ","Absenteeism - ","Youth Training - ","","Obesity - ","Child Obesity - ","Teenage Pregnancy - ","Life Expectancy - ","NHS GP - ","","Public Transport - ","Faith Participation - ","Volunteering - ","Community Centre Users - ","Sports/Leisure Centre Users"];
-
-            // This section iterates through the relevant keys within the JSON and extracts the values of each
+                    // This section iterates through the relevant keys within the JSON and extracts the values of each
             aArray.forEach(authority => {
             const aKeys = Object.keys(authority);
             const relevantKeys = aKeys.filter(key => key.startsWith(prefix));
@@ -685,20 +684,16 @@ async function fetchData(url) {
             if (relevantKeys.length > 0) {
               authorityInfoFound = true;
 
-              for (let i = 0; i < relevantKeys.length; i++) {
-                const elements = document.querySelectorAll(text[i]);
+          for (let i = 0; i < relevantKeys.length; i++) {
+            const elements = document.querySelectorAll(text[i]);
                 elements.forEach(element => {
                     const val = `${authority[relevantKeys.find(key => key.startsWith(values[i]))]}`;
                     element.innerText = `${display[i]} ` + val;
                 });
-              }
-              relevantKeys.forEach(key => {
-                console.log(`${key.replace(prefix, '')}: ${authority[key]}`);
-              });
             }
         }
     }
-          
+}   
     
 // Main function to fetch data and extract authority information to display it
 async function updateDisplayText(areacode) {
