@@ -665,6 +665,7 @@ async function updateDisplayText(areacode) {
 
     // IF authority data is found, then search the dataset for authority by area code
     if (aData) {
+    console.log("FOUND");
     const aName = areacode;
     const ayear = document.getElementById('sliderValue');
     extractAuthorityInfo(aName, aData, ayear);
