@@ -667,7 +667,7 @@ async function updateDisplayText(areacode) {
     if (aData) {
     console.log("FOUND");
     const aName = areacode;
-    const ayear = document.getElementById('sliderValue');
+    const ayear = document.getElementById('sliderValue').value;
     extractAuthorityInfo(aName, aData, ayear);
     }
 }
