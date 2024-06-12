@@ -667,7 +667,7 @@ async function updateDisplayText(areacode) {
     if (aData) {
     console.log("FOUND");
     const aName = areacode;
-    const ayear = "2024";
+    const ayear = sliderValue;
     extractAuthorityInfo(aName, aData, ayear);
     }
 }
@@ -679,8 +679,9 @@ async function updateDisplayText(areacode) {
 function extractAuthorityInfo(aName, aArray, aYear) {
         const prefix = aYear + "_" + aName + "_";
         let authorityInfoFound = false;
+
         console.log(prefix);
-        
+
         // Classes for each text variable
         const text = [".wellbeing",".community-richness",".voter",".library",".heritage",".hatecrime",".secure-livelihoods",".unemployment-benefits",".social-housing",".credit",".school-meals",".unemployment",".child-poverty",".annual-income",".income-housing",".homelessness",".home-ownership",".food-bank",".environmental-revitalisation",".fires",".traffc",".fly-tipping",".recycling",".noise",".distancetoparks",".learning",".ksschooling",".absenteeism",".youthtraining",".positive-connections",".obesity",".childobesity",".pregnancy",".expectancy",".medical",".services",".publictransport",".faith",".volunteering",".community-centres",".sports-centres"];
 
@@ -688,7 +689,7 @@ function extractAuthorityInfo(aName, aArray, aYear) {
         const values = [prefix+"Index Score",prefix+"Domain1",prefix+"Voters_Score1",prefix+"Library_Score1",prefix+"Heritage_Score1",prefix+"Hate Crimes_Score1",prefix+"Domain3",prefix+"Unemployment Benefits_Score3",prefix+"Social Housing_Score3",prefix+"Credit_Score3",prefix+"FSM_Score3",prefix+"Unemployment_Score3",prefix+"Child Poverty_Score3",prefix+"Annual Income_Score3",prefix+"Income After Housing_Score3",prefix+"Homelessness_Score3",prefix+"Home Ownership_Score3",prefix+"Food Banks_Score3",prefix+"Domain4",prefix+"Fires_Score4",prefix+"Traffic Accidents_Score4",prefix+"Fly Tipping_Score4",prefix+"Recycling Rate_Score4",prefix+"Noise Levels_Score4",prefix+"Park Distance_Score4",prefix+"Domain5",prefix+"KS Attainment_Score5",prefix+"Absentism_Score5",prefix+"Youth Training_Score5",prefix+"Domain6",prefix+"Obesity Rates_Score6",prefix+"Child Obesity_Score6",prefix+"Teenage Pregnancy_Score6",prefix+"Life Expectancy_Score6",prefix+"NHS_Score6",prefix+"Domain2",prefix+"Public Transport_Score2",prefix+"Faith_Score2",prefix+"Volunteering_Score2",prefix+"Community_Score2",prefix+"Sports_Score2"];
 
         // Display text that is paired with the value extracted from the JSON
-        const display = ["Wellbeing - "," ","Voter Turnout - ","Library Usage - ","Heritage - ","Crime (Hatecrimes) - ","","Unemployment Benefits - ","Social Housing - ","Credit Claimants - ","Free School Meals - ","Unemployment - ","Child Poverty - ","Annual Income - ","Income Housing - ","Homelessness - ","Home Ownership - ","Food Bank Usage - ","","Fires - ","Traffic Accidents - ","Fly-Tipping Reports - ","Recycling Rate - ","Noise Complaints - ","Distance To Parks - ","","KS Attainment - ","Absenteeism - ","Youth Training - ","","Obesity - ","Child Obesity - ","Teenage Pregnancy - ","Life Expectancy - ","NHS GP - ","","Public Transport - ","Faith Participation - ","Volunteering - ","Community Centre Users - ","Sports/Leisure Centre Users"];
+        const display = ["Wellbeing - "," ","Voter Turnout - ","Library Usage - ","Heritage - ","Crime (Hatecrimes) - ","","Unemployment Benefits - ","Social Housing - ","Credit Claimants - ","Free School Meals - ","Unemployment - ","Child Poverty - ","Annual Income - ","Income Housing - ","Homelessness - ","Home Ownership - ","Food Bank Usage - ","","Fires - ","Traffic Accidents - ","Fly-Tipping Reports - ","Recycling Rate - ","Noise Complaints - ","Distance To Parks - ","","KS Attainment - ","Absenteeism - ","Youth Training - ","","Obesity - ","Child Obesity - ","Teenage Pregnancy - ","Life Expectancy - ","NHS GP - ","","Public Transport - ","Faith Participation - ","Volunteering - ","Community Centre Users - ","Sports/Leisure Centre Users - "];
         // This section iterates through the relevant keys within the JSON and extracts the values of each
         aArray.forEach(authority => {
             const aKeys = Object.keys(authority);
