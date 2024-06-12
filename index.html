@@ -666,7 +666,8 @@ async function updateDisplayText(areacode) {
     // IF authority data is found, then search the dataset for authority by area code
     if (aData) {
     const aName = areacode;
-    extractAuthorityInfo(aName, aData);
+    const ayear = document.getElementById('sliderValue');
+    extractAuthorityInfo(aName, aData, ayear);
     }
 }
 
@@ -674,8 +675,8 @@ async function updateDisplayText(areacode) {
 
 /// PREFIX WILL NEED TO BE [YEAR+NAME+DATA]
 
-function extractAuthorityInfo(aName, aArray) {
-        const prefix = aName + "_";
+function extractAuthorityInfo(aName, aArray, aYear) {
+        const prefix = ayear + "_" + aName + "_";
         let authorityInfoFound = false;
 
         // Classes for each text variable
