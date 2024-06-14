@@ -4,7 +4,7 @@ https://cyberzealot.github.io/wellbeing.io/
 ## Wellbeing.py
 
 ### Data_Update.py
-| Area Code     | Indicator     |
-| ------------- | ------------- |
-| EXXXXXXXXXXX  | Value         |
-| EXXXXXXXXXXY  | Value         |
+| Area Code     | Indicator     | Area Code     | Indicator     | 
+| ------------- | ------------- | ------------- | ------------- |
+| EXXXXXXXXXXX  | Value         | EXXXXXXXXXXX  | Value         |
+| EXXXXXXXXXXY  | Value         | EXXXXXXXXXXY  | Value         |
