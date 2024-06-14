@@ -649,7 +649,7 @@ slider.oninput = function() {
 }
 
 // URL to the dataset for the index
-const url = 'https://raw.githubusercontent.com/CyberZealot/wellbeing.io/main/' + sliderValue  + '_data.json';
+const url = 'https://raw.githubusercontent.com/CyberZealot/wellbeing.io/main/' + document.getElementById('sliderValue').value  + '_data.json';
 
 // Function to fetch the JSON data from GitHub
 async function fetchData(url) {
