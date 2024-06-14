@@ -1,5 +1,6 @@
 # wellbeing.io
 https://cyberzealot.github.io/wellbeing.io/
+
 A measurement of wellbeing for local authorities utilising a data-driven approach.
 
 Consists of two Python scripts.
