@@ -28,3 +28,7 @@ Average of Domains
 | ------------- | ------------- | ------------- | ------------- |
 | EXXXXXXXXXXX  | Data          | EXXXXXXXXXXX  | Data          |
 | EXXXXXXXXXXY  | Data          | EXXXXXXXXXXY  | Data          |
+
+### Data.csv
+
+### Update.csv
