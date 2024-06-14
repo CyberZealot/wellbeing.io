@@ -643,15 +643,11 @@ async function initMap() {
 const slider = document.getElementById('mySlider');
 const sliderValue = document.getElementById('sliderValue');
 
-// URL to the dataset for the index
-const url = 'https://raw.githubusercontent.com/CyberZealot/wellbeing.io/main/' + document.getElementById('mySlider').value  + '_data.json';
-
 slider.oninput = function() {
     sliderValue.textContent = this.value;
     console.log(sliderValue);
-    url = 'https://raw.githubusercontent.com/CyberZealot/wellbeing.io/main/' + document.getElementById('mySlider').value  + '_data.json';
 }
-    
+
 // Function to fetch the JSON data from GitHub
 async function fetchData(url) {
   try {
@@ -669,10 +665,12 @@ async function fetchData(url) {
 
 // Main function to fetch data and extract authority information to display it
 async function updateDisplayText(areacode) {
+    // URL to the dataset for the index
+    const url = 'https://raw.githubusercontent.com/CyberZealot/wellbeing.io/main/' + document.getElementById('mySlider').value  + '_data.json';
     const aData = await fetchData(url);
 
     console.log(url);
-    
+
     // IF authority data is found, then search the dataset for authority by area code
     if (aData) {
     console.log("FOUND");
