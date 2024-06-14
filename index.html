@@ -674,15 +674,12 @@ async function updateDisplayText(areacode) {
     if (aData) {
     console.log("FOUND");
     const aName = areacode;
-    const ayear =  "2024";
+    const ayear =  sliderValue;
     extractAuthorityInfo(aName, aData, ayear);
     }
 }
 
 // Function to extract and print all information for a authority
-
-/// PREFIX WILL NEED TO BE [YEAR+NAME+DATA]
-
 function extractAuthorityInfo(aName, aArray, aYear) {
         const prefix = aYear + "_" + aName + "_";
         let authorityInfoFound = false;
