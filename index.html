@@ -645,11 +645,11 @@ const sliderValue = document.getElementById('sliderValue');
 
 slider.oninput = function() {
     sliderValue.textContent = this.value;
+    console.log(sliderValue);
 }
 
 // URL to the dataset for the index
 const url = 'https://raw.githubusercontent.com/CyberZealot/wellbeing.io/main/' + sliderValue  + '_data.json';
-//'https://raw.githubusercontent.com/CyberZealot/wellbeing.io/main/localdata_alt.json';
 
 // Function to fetch the JSON data from GitHub
 async function fetchData(url) {
@@ -674,7 +674,7 @@ async function updateDisplayText(areacode) {
     if (aData) {
     console.log("FOUND");
     const aName = areacode;
-    const ayear =  sliderValue;
+    const ayear =  = document.getElementById("mySlider").value; 
     extractAuthorityInfo(aName, aData, ayear);
     }
 }
