@@ -640,8 +640,16 @@ async function initMap() {
 </script>
 
 <script>
+const slider = document.getElementById('mySlider');
+const sliderValue = document.getElementById('sliderValue');
+
+slider.oninput = function() {
+    sliderValue.textContent = this.value;
+}
+
 // URL to the dataset for the index
-const url = 'https://raw.githubusercontent.com/CyberZealot/wellbeing.io/main/' + document.getElementById("mySlider").value  + '_data.json';
+const url = 'https://raw.githubusercontent.com/CyberZealot/wellbeing.io/main/' + sliderValue  + '_data.json';
+//'https://raw.githubusercontent.com/CyberZealot/wellbeing.io/main/localdata_alt.json';
 
 // Function to fetch the JSON data from GitHub
 async function fetchData(url) {
@@ -672,6 +680,9 @@ async function updateDisplayText(areacode) {
 }
 
 // Function to extract and print all information for a authority
+
+/// PREFIX WILL NEED TO BE [YEAR+NAME+DATA]
+
 function extractAuthorityInfo(aName, aArray, aYear) {
         const prefix = aYear + "_" + aName + "_";
         let authorityInfoFound = false;
@@ -704,14 +715,6 @@ function extractAuthorityInfo(aName, aArray, aYear) {
     })
 }   
 
-</script>
-<script>
-    const slider = document.getElementById('mySlider');
-    const sliderValue = document.getElementById('sliderValue');
-
-    slider.oninput = function() {
-        sliderValue.textContent = this.value;
-    }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ_ISENaww2PHEZdrmCVhOwkL-uN6m_l4&callback=initMap" async defer></script>
 </html>
