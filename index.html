@@ -643,14 +643,15 @@ async function initMap() {
 const slider = document.getElementById('mySlider');
 const sliderValue = document.getElementById('sliderValue');
 
-slider.oninput = function() {
-    sliderValue.textContent = this.value;
-    console.log(sliderValue);
-}
-
 // URL to the dataset for the index
 const url = 'https://raw.githubusercontent.com/CyberZealot/wellbeing.io/main/' + document.getElementById('mySlider').value  + '_data.json';
 
+slider.oninput = function() {
+    sliderValue.textContent = this.value;
+    console.log(sliderValue);
+    url = 'https://raw.githubusercontent.com/CyberZealot/wellbeing.io/main/' + document.getElementById('mySlider').value  + '_data.json';
+}
+    
 // Function to fetch the JSON data from GitHub
 async function fetchData(url) {
   try {
