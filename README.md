@@ -23,7 +23,7 @@ Average of Components
 Average of Domains
 ````
 
-### Data_Update.py
+## Data_Update.py
 | Area Code     | Indicator     | Area Code     | Indicator     | 
 | ------------- | ------------- | ------------- | ------------- |
 | EXXXXXXXXXXX  | Data          | EXXXXXXXXXXX  | Data          |
