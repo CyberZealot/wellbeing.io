@@ -670,6 +670,8 @@ async function fetchData(url) {
 async function updateDisplayText(areacode) {
     const aData = await fetchData(url);
 
+    console.log(url);
+    
     // IF authority data is found, then search the dataset for authority by area code
     if (aData) {
     console.log("FOUND");
