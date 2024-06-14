@@ -12,7 +12,7 @@ Indicator data * median
 ````
 ### Component
 ````
-Value - Worst Case / (Best Case - Worst) * 100
+Value - Min / (Max - Min) * 100
 ````
 ### Domain
 ````
