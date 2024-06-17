@@ -14,7 +14,7 @@ The data as updated via the Data_Update.py, this formatted data is normalised an
 The full data output is written to this .csv file. 
 
 ### YEAR_Data.json
-The .json file is formatted as to be readable to the Dashboard.
+The .json file is generated upon running the Wellbeing.py script, and is formatted as to be read by the Dashboard.
 
 ### Value
 ````
