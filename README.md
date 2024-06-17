@@ -8,6 +8,7 @@ Consists of two Python scripts.
 ## Wellbeing.py
 
 ### YEAR_Data.csv
+The data as updated via the Data_Update.py, this formatted data is normalised and processed by the Wellbeing.py script.
 
 ### YEAR_Index_Output.csv
 The full data output is written to this .csv file. 
