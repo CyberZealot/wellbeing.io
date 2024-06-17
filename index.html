@@ -666,7 +666,7 @@ async function fetchData(url) {
 // Main function to fetch data and extract authority information to display it
 async function updateDisplayText(areacode) {
     // URL to the dataset for the index
-    const url = 'https://raw.githubusercontent.com/CyberZealot/wellbeing.io/main/' + document.getElementById('mySlider').value  + '_data.json';
+    const url = 'https://raw.githubusercontent.com/CyberZealot/wellbeing.io/main/Data/' + document.getElementById('mySlider').value  + '_data.json';
     const aData = await fetchData(url);
 
     console.log(url);
