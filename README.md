@@ -6,6 +6,13 @@ A measurement of wellbeing for local authorities utilising a data-driven approac
 Consists of two Python scripts.
 
 ## Wellbeing.py
+
+### YEAR_Data.csv
+
+### YEAR_Index_Output.csv
+
+### YEAR_Data.json
+
 ### Value
 ````
 Indicator data * median
@@ -29,6 +36,6 @@ Average of Domains
 | EXXXXXXXXXXX  | Data          | EXXXXXXXXXXX  | Data          |
 | EXXXXXXXXXXY  | Data          | EXXXXXXXXXXY  | Data          |
 
-### Data.csv
+### YEAR_Data.csv
 
-### Update.csv
+### YEAR_Update_Data.csv
