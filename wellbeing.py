@@ -56,14 +56,13 @@ def validate_data(input_year):
 
 # Interface
 print("|███Wellbeing.io████████████████████████|")
-area_input = input("Please enter the area code for the Authority you wish to upload: ")
-year_input = input("Please enter the year to update: ")
+year_input = input("Please enter the year to process: ")
 while not validate_data(year_input):
     print("Invalid date format. Please enter a valid year (four-digits).")
-    year_input = input("Please enter the year to update: ")
+    year_input = input("Please enter the year to process: ")
 
 input_file = f'{year_input}_data.csv'
-output_file = 'index_output.csv'
+output_file = f'{year_input}_index_output.csv'
 df = pd.read_csv(input_file)
 
 columns_to_normalize = ['Library', 'Voters', 'Hate Crimes', 'Heritage', 'Community', 'Sports', 'Public Transport', 
