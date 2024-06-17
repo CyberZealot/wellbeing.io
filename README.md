@@ -19,15 +19,16 @@ The full data output is written to this .csv file.
 ### YEAR_Data.json
 The .json file is generated upon running the Wellbeing.py script, and is formatted as to be read by the Dashboard.
 
-### Value
+### Functions of Wellbeing.py
+#### Value
 ````
 Indicator data * median
 ````
-### Component
+#### Component
 ````
 Value - Min / (Max - Min) * 100
 ````
-### Domain
+#### Domain
 ````
 Average of Components
 ````
