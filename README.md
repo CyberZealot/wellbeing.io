@@ -10,8 +10,10 @@ Consists of two Python scripts.
 ### YEAR_Data.csv
 
 ### YEAR_Index_Output.csv
+The full data output is written to this .csv file. 
 
 ### YEAR_Data.json
+The .json file is formatted as to be readable to the Dashboard.
 
 ### Value
 ````
@@ -36,6 +38,5 @@ Average of Domains
 | EXXXXXXXXXXX  | Data          | EXXXXXXXXXXX  | Data          |
 | EXXXXXXXXXXY  | Data          | EXXXXXXXXXXY  | Data          |
 
-### YEAR_Data.csv
-
 ### YEAR_Update_Data.csv
+Place the data into the corresponding column, ensuring to pair it with the area code of the local authority. AREA CODE | DATA
