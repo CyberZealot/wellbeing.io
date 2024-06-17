@@ -6,9 +6,12 @@ A measurement of wellbeing for local authorities utilising a data-driven approac
 Consists of two Python scripts.
 
 ## Wellbeing.py
+The calculation for wellbeing utilities two .csv files, ensure at least one version of each is named with the year to be calculated. 
+
+The purpose and details of each are covered below:
 
 ### YEAR_Data.csv
-The data as updated via the Data_Update.py, this formatted data is normalised and processed by the Wellbeing.py script.
+The data as updated via the Data_Update.py, this formatted data is normalised and processed by the Wellbeing.py script. 
 
 ### YEAR_Index_Output.csv
 The full data output is written to this .csv file. 
