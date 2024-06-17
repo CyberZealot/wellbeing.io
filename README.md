@@ -32,7 +32,7 @@ Value - Min / (Max - Min) * 100
 ````
 Average of Components
 ````
-### Index
+#### Index
 ````
 Average of Domains
 ````
