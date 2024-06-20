@@ -65,6 +65,8 @@ input_file = f'{year_input}_data.csv'
 output_file = f'{year_input}_index_output.csv'
 df = pd.read_csv(input_file)
 
+df = df.iloc[:-1, :]
+
 columns_to_normalize = ['Library', 'Voters', 'Hate Crimes', 'Heritage', 'Community', 'Sports', 'Public Transport', 
 'Faith', 'Volunteering', 'Unemployment Benefits', 'Social Housing', 'Credit', 'FSM', 'Unemployment', 'Child Poverty', 
 'Annual Income', 'Income After Housing', 'Homelessness', 'Home Ownership', 'Food Banks', 'Fires', 'Traffic Accidents', 
