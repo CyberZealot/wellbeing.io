@@ -607,40 +607,6 @@ async function initMap() {
         map.fitBounds(bounds);
     });
 
-    /// This section is the search feature, which draws from the dropdown element in the HTML
-    document.getElementById('dropdown-council').addEventListener('input', function() {
-    var searchTerm = document.getElementById('dropdown-council').value.trim();
-
-    // Iterate through features to find the one with matching name property
-    map.data.forEach(function(feature) {
-        var featureName = feature.getProperty('LAD13NM'); 
-        if (featureName.toLowerCase() === searchTerm.toLowerCase()) {
-
-            updateDisplayText(featureName.toUpperCase());
-
-            if (selectedFeature) {
-                selectedFeature.setProperty("isColorful", false);
-            }
-            map.data.revertStyle();
-
-            selectedFeature = feature;
-
-            // Styling of the authority is overridden 
-            map.data.overrideStyle(feature, {
-                strokeWeight: 3, // Example: Increase stroke weight
-                strokeColor: 'black', // Example: Change stroke color
-                fillColor: 'purple'
-            });
-
-            // The view is focused on the selected authority
-            var bounds = new google.maps.LatLngBounds();
-            feature.getGeometry().forEachLatLng(function(latlng) {
-                bounds.extend(latlng);
-            });
-            map.fitBounds(bounds);
-        }
-    });
-
     // This following section pertains to hover behaviour, 
     map.data.addListener("mouseover", (event) => {
         map.data.revertStyle();
