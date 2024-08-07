@@ -543,24 +543,6 @@
         image.src = authority;
     }
 
-    // Add event listener for input change
-    input.addEventListener('input', function() {
-        // Get the current input value
-        var inputValue = input.value;
-        // Find the option in the datalist that matches the input value
-        var matchedOption = Array.from(datalist.options).find(function(option) {
-            return option.value === inputValue;
-        });
-
-        // If a matching option is found, update the input value
-        if (matchedOption) {
-            input.value = matchedOption.value;
-            var selectedImageSrc = matchedOption.dataset.value;
-            changeAuthority(selectedImageSrc);
-        }
-    });
-
-
 </script>
 
 <script>
@@ -623,6 +605,23 @@ async function initMap() {
             bounds.extend(latlng);
         });
         map.fitBounds(bounds);
+    });
+
+        // Add event listener for input change
+    input.addEventListener('input', function() {
+        // Get the current input value
+        var inputValue = input.value;
+        // Find the option in the datalist that matches the input value
+        var matchedOption = Array.from(datalist.options).find(function(option) {
+            return option.value === inputValue;
+        });
+
+        // If a matching option is found, update the input value
+        if (matchedOption) {
+            input.value = matchedOption.value;
+            var selectedImageSrc = matchedOption.dataset.value;
+            changeAuthority(selectedImageSrc);
+        }
     });
 
     // This following section pertains to hover behaviour, 
