@@ -613,7 +613,7 @@ async function initMap() {
 
     // Iterate through features to find the one with matching name property
     map.data.forEach(function(feature) {
-        var featureName = feature.getProperty('LAD13CD'); 
+        var featureName = feature.getProperty('LAD13NM'); 
         if (featureName.toLowerCase() === searchTerm.toLowerCase()) {
 
             updateDisplayText(featureName.toUpperCase());
