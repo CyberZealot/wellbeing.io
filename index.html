@@ -625,6 +625,9 @@ async function initMap() {
 
             selectedFeature = feature;
 
+            var val = feature.getProperty("LAD13CD");
+            updateDisplayText(val.toUpperCase());
+            
             // Styling of the authority is overridden 
             map.data.overrideStyle(feature, {
                 strokeWeight: 3, // Example: Increase stroke weight
